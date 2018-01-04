@@ -5,7 +5,17 @@
   },
   "name": "gretch",
   "version": "1.0.0",
-  "description": "A package to make requests from gretch.io!",
+  "description": "A tool that makes requests to gretch.io!",
+  "keywords": [
+    "gretch",
+    "gretch.io",
+    "oembed",
+    "ogp",
+    "open graph",
+    "open graph protocol",
+    "page data",
+    "page info"
+  ],
   "main": "lib/gretch.js",
   "repository": "http://github.com/kurtfunai/gretch",
   "author": "kurtfunai",
