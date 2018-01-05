@@ -2,16 +2,35 @@
 
 This is a npm package to fetch information from api.gretch.io
 
+### Installation
+
+```sh
+yarn add gretch
+```
+
+or
+
+```sh
+npm install gretch
+```
+
+### Compatibility
+This package is written in ES2015 and includes a babel transpiled ES5 version of the library under `/lib`.
+
+It makes use of both `fetch` and `promises`, but makes no assumptions and leaves the [polyfills](https://github.com/kurtfunai/gretch#polyfills) up to you (suggestions below)!
+
 ### Usage
 In this example we fetch the data for one of my favourite songs by Shakey Graves.
 ```javascript
+import Gretch from "gretch"
+// or var Gretch = require('gretch')
 let url = 'https://www.youtube.com/watch?v=sD72LbIk02M'
 let gretch = new Gretch('secret_key')
 gretch.fetch(url)
-  .then((data) => console.log(data))
+  .then(data => console.log(data))
   .catch(err => console.log(err))
 
-// Result
+// Output
 {
   "oembed": {
     "type": "video",
@@ -57,10 +76,25 @@ gretch.fetch(url)
 Example of HTTP error when passing invalid URL
 ```javascript
 gretch.fetch('')
-  .then((data) => console.log(data))
+  .then(data => console.log(data))
   .catch(err => console.log(err))
 // MyApp.js:2 Error: [Gretch] Unprocessable Entity
 ```
+
+### Polyfills
+
+#### Browser suggestions
+- [Fetch compatibility](https://caniuse.com/#search=fetch)
+  - fetch https://github.com/github/fetch
+  - cross-fetch (nodejs compatible) https://github.com/lquixada/cross-fetch
+  - isomorphic-fetch (nodejs compatible)https://github.com/matthew-andrews/isomorphic-fetch
+- [Promise compatibility](https://caniuse.com/#search=promise)
+  - es6-promise https://github.com/stefanpenner/es6-promise
+  - promise-polyfill https://github.com/taylorhakes/promise-polyfill
+
+#### Node.js
+- Fetch polyfills
+  - node-fetch https://www.npmjs.com/package/node-fetch
 
 ### Contributing
 
